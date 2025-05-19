@@ -1,0 +1,7 @@
+Visit https://swapi.info/vehicles and pick five vehicles from the list. 
+
+Create a very good feature issue for each vehicle keeping in mind how we have implemented the people API.
+Describe in the issue for each vehicle how to properly implement it in our library.
+
+Then create a test case for each vehicle and create an issue for that in the upstream repository to be implemented later. 
+Please mention all properties of the vehicle in the test case to be asserted using the actuall payload returned by the API for the given vehicle id. Assign the issue to me. 

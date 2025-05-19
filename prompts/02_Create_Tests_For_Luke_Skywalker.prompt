@@ -1,0 +1,16 @@
+Please use the upstream of this repository to create an github issue on github.com that has the following content:
+
+# title
+Tests are missing for the Luke Skywalker API call
+
+# content
+It seems that we are missing tests for the Luke Skywalker API call. Please create a test class that tests the following:
+- The API call is successful
+- The API call returns the correct DTO
+- The API call returns the correct properties in the DTO
+- The API call returns the correct status code
+
+Reassure your asserts by taking the real payload under https://swapi.info/people/1 and crosschecking that all your asserts are correct and all properties are handled.
+
+# assignments
+Assign the issue to me

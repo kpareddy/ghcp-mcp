@@ -1,0 +1,17 @@
+Please use the upstream of this repository to create an github issue on github.com that has the following content:
+
+# title
+Code is smelly and needs to be refactored
+
+# content
+It seems like we have a hell of duplicated code in our library. Even though Luke Skywalder and Darth Vader are two different characters, they share a lot of the same code. Please create a refactor that removes the duplicated code.
+In the end we only want to have ONE interface for all people instead of having a interface for each character.
+
+We need the following changes:
+- Create ONE StarWarsPeopleAPI interface that allows to query for all people
+- Only use ONE implementation of the StarWarsPeopleAPI interface and parameeterize it with the People ids. 
+- Merge the two test classes into one test class that tests the new StarWarsPeopleAPI interface
+- Remove ALL unnecessary code that is not used anymore
+
+# assignments
+Assign the issue to me
