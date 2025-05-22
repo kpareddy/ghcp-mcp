@@ -22,7 +22,9 @@
                 "streetsidesoftware.code-spell-checker",
                 "vscjava.vscode-java-pack",
                 "ms-azuretools.vscode-docker",
-                "oracle.oracledevtools"            ]
+                "GitHub.copilot",
+                "GitHub.copilot-chat"
+            ]
         }
     }
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
