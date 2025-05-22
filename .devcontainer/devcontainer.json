@@ -32,5 +32,5 @@
     },
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     // "forwardPorts": [],
-    "postCreateCommand": "git clone https://github.com/github/github-mcp-server.git && go build -o github-mcp-server/cmd/github-mcp-server/github-mcp-server github-mcp-server/cmd/github-mcp-server"
+    "postCreateCommand": "([ -d github-mcp-server ] || git clone https://github.com/github/github-mcp-server.git); cd github-mcp-server && go build -o cmd/github-mcp-server/github-mcp-server ./cmd/github-mcp-server"
 }
