@@ -43,3 +43,6 @@ nbproject/private/
 nbbuild/
 nbdist/
 nbactions.xml
+
+# mcp server to be built
+github-mcp-server/
