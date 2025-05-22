@@ -11,6 +11,9 @@
         },
         "ghcr.io/devcontainers/features/node:1": {
             "version": "lts"
+        },
+        "ghcr.io/devcontainers/features/go:1": {
+            "version": "latest"
         }
     },
     // Configure tool-specific properties.
@@ -26,11 +29,8 @@
                 "GitHub.copilot-chat"
             ]
         }
-    }
+    },
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     // "forwardPorts": [],
-    // Use 'postCreateCommand' to run commands after the container is created.
-    // "postCreateCommand": "java -version",
-    // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-    // "remoteUser": "root"
+    "postCreateCommand": "git clone https://github.com/github/github-mcp-server.git && cd github-mcp-server && go build -o github-mcp-server ."
 }
