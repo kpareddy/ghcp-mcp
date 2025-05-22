@@ -1,12 +1,12 @@
 Please use the upstream of this repository to create an github issue on github.com that has the following content:
 
 # title
-Create iniital draft of java library to query for luke skywalker in swapi.info
+Create inital draft of java library to query for luke skywalker in swapi.info
 
 # content
 In our lib we would like to have a function that queries for Luke Skywalker that is provided by https://swapi.info/people/1
-We would like to use good Java best practice and use a DTO, an interface and an implementaiton of the interface with one method that returns the DTO.
-Try to get the payload from the API first before you make any implementation so that all properties are properly mapped and reflected with the DTO.
+We would like to use good Java best practice and use a DTO (StarWarsPersonDTO), an interface (StarWarsAPI) and an implementaiton (StarWarsAPIImpl) of the interface with one method that returns the DTO.
+Try to get the payload from the API (https://swapi.info/api/people/1.json) first before you make any implementation so that all properties are properly mapped, asserted and reflected with the DTO.
 
 # assignments
 Assign the issue to me

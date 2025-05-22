@@ -10,7 +10,7 @@ It seems that we are missing tests for the Luke Skywalker API call. Please creat
 - The API call returns the correct properties in the DTO
 - The API call returns the correct status code
 
-Reassure your asserts by taking the real payload under https://swapi.info/people/1 and crosschecking that all your asserts are correct and all properties are handled.
+Reassure your asserts by taking the real payload under https://swapi.info/api/people/1.json and crosschecking that all your asserts are correct and all properties are handled.
 
 # assignments
 Assign the issue to me

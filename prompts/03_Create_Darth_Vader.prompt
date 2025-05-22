@@ -4,7 +4,7 @@ Please use the upstream of this repository to create an github issue on github.c
 Add Darth Vader to the library
 
 # content
-In our lib we would like to have a function that queries for Darth Vader that is provided by https://swapi.info/people/4
+In our lib we would like to have a function that queries for Darth Vader that is provided by https://swapi.info/api/people/4.json
 We would like to use good Java best practice and use a DTO, an interface and an implementaiton of the interface with one method that returns the DTO.
 
 # assignments

@@ -10,7 +10,7 @@ It seems that we are missing tests for the Darth Vader API call. Please create a
 - The API call returns the correct properties in the DTO
 - The API call returns the correct status code
 
-Reassure your asserts by taking the real payload under https://swapi.info/api/people/4 and crosschecking that all your asserts are correct and all properties are handled.
+Reassure your asserts by taking the real payload under https://swapi.info/api/people/4.json and crosschecking that all your asserts are correct and all properties are handled.
 
 # assignments
 Assign the issue to me
