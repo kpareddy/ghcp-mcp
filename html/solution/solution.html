@@ -1,0 +1,423 @@
+<!-- Polaroid Image Gallery -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polaroid Gallery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Navigation Styles */
+        .nav-toggle {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-toggle:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+        }
+
+        .nav-menu {
+            position: absolute;
+            top: 100%;
+            right: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            min-width: 150px;
+        }
+
+        .nav-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            padding: 1rem 0;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            background: #f0f0f0;
+            color: #667eea;
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-title {
+            text-align: center;
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Polaroid Gallery Grid */
+        .polaroid-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .polaroid {
+            background: white;
+            padding: 1rem;
+            padding-bottom: 2rem;
+            border-radius: 5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .polaroid:nth-child(odd) {
+            transform: rotate(-2deg);
+        }
+
+        .polaroid:nth-child(even) {
+            transform: rotate(1deg);
+        }
+
+        .polaroid:nth-child(3n) {
+            transform: rotate(-1deg);
+        }
+
+        .polaroid:hover {
+            transform: scale(1.05) rotate(0deg) !important;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+        .polaroid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .polaroid:hover img {
+            transform: scale(1.02);
+        }
+
+        .polaroid-caption {
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 1rem;
+            color: #333;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 2rem 0;
+            overflow: hidden;
+            position: relative;
+            height: 120px;
+        }
+
+        .flying-text {
+            position: absolute;
+            white-space: nowrap;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            animation: flyText 15s linear infinite;
+            top: 70%;
+            transform: translateY(-50%);
+        }
+        
+        .nyan-cat {
+            position: absolute;
+            width: 150px;
+            height: 100px;
+            background-image: url('https://media.tenor.com/E3MLgDP1qoQAAAAi/nyan-cat-transparent.gif');
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: flyNyanCat 10s linear infinite;
+            top: 30%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+        
+        @keyframes flyNyanCat {
+            from {
+                transform: translateX(-120px) translateY(-50%);
+            }
+            to {
+                transform: translateX(100vw) translateY(-50%);
+            }
+        }
+
+        @keyframes flyText {
+            from {
+                transform: translateX(-100%) translateY(-50%);
+            }
+            to {
+                transform: translateX(100vw) translateY(-50%);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .polaroid-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .gallery-title {
+                font-size: 2rem;
+            }
+            
+            .header-content {
+                padding: 0 1rem;
+            }
+            
+            main {
+                padding: 2rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .polaroid-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .polaroid {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
+
+        /* Ensure 3x3 grid on larger screens */
+        @media (min-width: 769px) {
+            .polaroid-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">📸 Polaroid Gallery</div>
+            <button class="nav-toggle" onclick="toggleNav()">Menu ▼</button>
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <h1 class="gallery-title">My Polaroid Collection</h1>
+        
+        <!-- 3x3 Polaroid Grid -->
+        <div class="polaroid-grid">
+            <div class="polaroid" onclick="playRickroll()">
+                <img src="https://picsum.photos/300/250?random=1" alt="Random Image 1">
+                <div class="polaroid-caption">Summer Vibes</div>
+            </div>
+            <div class="polaroid" onclick="playRickroll()">
+                <img src="https://picsum.photos/300/250?random=2" alt="Random Image 2">
+                <div class="polaroid-caption">City Lights</div>
+            </div>
+            <div class="polaroid" onclick="playRickroll()">
+                <img src="https://picsum.photos/300/250?random=3" alt="Random Image 3">
+                <div class="polaroid-caption">Nature's Beauty</div>
+            </div>
+            <div class="polaroid" onclick="playRickroll()">
+                <img src="https://picsum.photos/300/250?random=4" alt="Random Image 4">
+                <div class="polaroid-caption">Ocean Waves</div>
+            </div>
+            <div class="polaroid" onclick="playRickroll()">
+                <img src="https://picsum.photos/300/250?random=5" alt="Random Image 5">
+                <div class="polaroid-caption">Mountain Peak</div>
+            </div>
+            <div class="polaroid" onclick="playRickroll()">
+                <img src="https://picsum.photos/300/250?random=6" alt="Random Image 6">
+                <div class="polaroid-caption">Urban Art</div>
+            </div>
+            <div class="polaroid" onclick="playRickroll()">
+                <img src="https://picsum.photos/300/250?random=7" alt="Random Image 7">
+                <div class="polaroid-caption">Sunset Dreams</div>
+            </div>
+            <div class="polaroid" onclick="playRickroll()">
+                <img src="https://picsum.photos/300/250?random=8" alt="Random Image 8">
+                <div class="polaroid-caption">Forest Path</div>
+            </div>
+            <div class="polaroid" onclick="playRickroll()">
+                <img src="https://picsum.photos/300/250?random=9" alt="Random Image 9">
+                <div class="polaroid-caption">Starry Night</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="nyan-cat"></div>
+        <div class="flying-text">✨ SALES LOVES THIS! ✨ Amazing Polaroid Gallery ✨ Perfect for Memories ✨ SALES LOVES THIS! ✨</div>
+    </footer>
+
+    <!-- Minimal JavaScript -->
+    <script>
+        // Toggle navigation menu
+        function toggleNav() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+
+        // Close navigation when clicking outside
+        document.addEventListener('click', function(event) {
+            const navMenu = document.getElementById('navMenu');
+            const navToggle = document.querySelector('.nav-toggle');
+            
+            if (!navMenu.contains(event.target) && !navToggle.contains(event.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Rickroll sound effect using MP3 file
+        function playRickroll() {
+            try {
+                // Using provided rickroll MP3 URL
+                const audioUrl = "https://media.memesoundeffects.com/2023/03/Rick-Roll-Sound-djlunatique.com_.mp3";
+                
+                // Check if we already have an audio element
+                let rickrollAudio = document.getElementById('rickrollAudio');
+                
+                // If not, create a new one
+                if (!rickrollAudio) {
+                    rickrollAudio = new Audio(audioUrl);
+                    rickrollAudio.id = 'rickrollAudio';
+                    rickrollAudio.volume = 0.7; // Set volume to 70%
+                    document.body.appendChild(rickrollAudio);
+                }
+                
+                // Play the sound (restart if already playing)
+                rickrollAudio.currentTime = 0;
+                rickrollAudio.play();
+                
+                console.log("🎵 Never gonna give you up! 🎵");
+            } catch (error) {
+                // Fallback if audio playback fails
+                console.error("Error playing rickroll:", error);
+                alert("🎵 Never gonna give you up, never gonna let you down! 🎵");
+            }
+        }
+    </script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+
+</html>

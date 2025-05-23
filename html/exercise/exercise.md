@@ -9,7 +9,6 @@ This exercise is a successor of the Polaroid image gallery exercise we use for o
 ## Non-Deterministic
 
 > [!NOTE]
-
 > **Even though you are using the same prompt, the agent might generate different code each time. This is normal and 
 > expected!**
 > 
@@ -127,10 +126,8 @@ Interact with the agent and ask it to fix other bugs. You can also ask the agent
 
 ## Step 3: Create tests for the Polaroid image gallery
 
-> [!NOTE]
-
-> This step is only working if you are running the exercise on your local machine! 
-
+>[!NOTE]
+> This step is only working if you are running the exercise on your local machine!
 
 Now we will use the Playwright MCP server to create tests for the Polaroid image gallery. The Playwright MCP server allows us to generate tests for our application and run them in different browsers.
 
