@@ -24,6 +24,18 @@ Follow the instructions in the following video to create a PAT.
 
 Use this link to create a PAT: [Create GitHub PAT](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens?wt.mc_id=DT-MVP-5004771)
 
+## Codespaces
+
+This repository is configured to work with GitHub Codespaces. You can create a codespace by clicking the green "Code" button and selecting "Open with Codespaces".
+This will create a new codespace with all the necessary dependencies and configurations already set up for you. 
+
+> [!NOTE]
+> ### MCP Server Options: Codespaces vs Docker
+> In your `.vscode/mcp.json`, you will find two different configurations for the GitHub MCP server based on how you have started this exercise - either on your local machine or in a GitHub Codespace.
+>
+> - **github-codespace**: Runs the MCP server as a native Go binary built directly in your Codespace or dev container. This is typically faster and allows for easier debugging and direct integration with your environment. The command points to the built binary (e.g., `${workspaceFolder}/github-mcp-server/cmd/github-mcp-server/github-mcp-server`).
+
+> - **github-docker**: Runs the MCP server inside a Docker container using the published image (`ghcr.io/github/github-mcp-server`) **on your local machine**. This is more portable and ensures a consistent environment, but may be slower to start and less convenient for debugging or development.
 
 # MCP Servers
 
