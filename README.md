@@ -2,6 +2,8 @@
 
 This repository is a showcase of the GitHub Copilot's capabilities in generating code and assisting with various programming tasks. It includes examples of code generation, documentation, and other features that demonstrate the power of AI in software development and how to extend the capabilities of GitHub Copilot by using various MCP servers that are configured in `.vscode/mcp.json` file. **The main purpose of this repository is to provide a hands-on experience with GitHub Copilot, the new agent mode and its integration with MCP servers.**
 
+<img src="assets/octo_hugs.png" alt="GitHub Copilot MCP Showcase" width="50%" />
+
 # Prerequisites
 
 ## Fork this repository
