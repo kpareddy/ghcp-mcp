@@ -7,7 +7,8 @@
             "version": "none",
             "installMaven": "true",
             "mavenVersion": "3.8.6",
-            "installGradle": "false"
+            "installGradle": "false",
+             "docker-from-docker": "latest"
         },
         "ghcr.io/devcontainers/features/node:1": {
             "version": "lts"
