@@ -1,15 +1,211 @@
-<!-- Basic HTML 5 skeleton with minimal hello world -->
+<!-- Polaroid Image Gallery (3x3 Grid, Minimal JS) -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
+    <title>Polaroid Image Gallery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            padding: 2.5rem 1rem 1.5rem 1rem;
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        header h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.7rem;
+            color: #2d3748;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            max-width: 1100px;
+            margin: 2.5rem auto 0 auto;
+            padding: 0 1.5rem 2.5rem 1.5rem;
+        }
+
+        .polaroid {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 32px rgba(0, 0, 0, 0.13), 0 2px 8px rgba(0, 0, 0, 0.08);
+            padding: 1.2rem 1.2rem 2.7rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.18s, box-shadow 0.18s;
+            position: relative;
+        }
+
+        .polaroid:hover {
+            transform: scale(1.045) rotate(-2deg);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18), 0 4px 12px rgba(0, 0, 0, 0.13);
+            z-index: 2;
+        }
+
+        .polaroid img {
+            width: 100%;
+            max-width: 240px;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border: 7px solid #fff;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.13);
+            border-radius: 6px;
+        }
+
+        .caption {
+            margin-top: 1.1rem;
+            font-size: 1.08rem;
+            color: #3a3a3a;
+            text-align: center;
+            font-family: 'Pacifico', cursive;
+            background: #fff;
+            padding: 0.6rem 0.3rem 0.3rem 0.3rem;
+            border-radius: 0 0 8px 8px;
+            min-height: 2.2em;
+            width: 100%;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .tape {
+            position: absolute;
+            width: 60px;
+            height: 18px;
+            left: 50%;
+            top: -12px;
+            transform: translateX(-50%) rotate(-4deg);
+            background: repeating-linear-gradient(135deg, #f7e7b7 0 6px, #f5d97d 6px 12px);
+            border-radius: 6px 6px 12px 12px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            opacity: 0.7;
+        }
+
+        @media (max-width: 900px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Hello, World!</h1>
+    <header>
+        <h1>Polaroid Image Gallery</h1>
+    </header>
+    <audio id="rickroll-audio" src="https://media.memesoundeffects.com/2023/03/Rick-Roll-Sound-djlunatique.com_.mp3"></audio>
+    <div class="gallery">
+        <div class="polaroid">
+            <div class="tape"></div>
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+                alt="Mountain Lake">
+            <div class="caption">Mountain Lake</div>
+        </div>
+        <div class="polaroid">
+            <div class="tape"></div>
+            <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
+                alt="Desert Road">
+            <div class="caption">Desert Road</div>
+        </div>
+        <div class="polaroid">
+            <div class="tape"></div>
+            <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80"
+                alt="Forest Path">
+            <div class="caption">Forest Path</div>
+        </div>
+        <div class="polaroid">
+            <div class="tape"></div>
+            <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=400&q=80"
+                alt="City Skyline">
+            <div class="caption">City Skyline</div>
+        </div>
+        <div class="polaroid">
+            <div class="tape"></div>
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=80"
+                alt="Sunset Beach">
+            <div class="caption">Sunset Beach</div>
+        </div>
+        <div class="polaroid">
+            <div class="tape"></div>
+            <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
+                alt="Desert Dunes">
+            <div class="caption">Desert Dunes</div>
+        </div>
+        <div class="polaroid">
+            <div class="tape"></div>
+            <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80"
+                alt="Misty Forest">
+            <div class="caption">Misty Forest</div>
+        </div>
+        <div class="polaroid">
+            <div class="tape"></div>
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+                alt="Mountain View">
+            <div class="caption">Mountain View</div>
+        </div>
+        <div class="polaroid">
+            <div class="tape"></div>
+            <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=400&q=80"
+                alt="Urban Night">
+            <div class="caption">Urban Night</div>
+        </div>
+    </div>
+    <script>
+        // Play Rick Roll sound on image click
+        const audio = document.getElementById('rickroll-audio');
+        document.querySelectorAll('.polaroid img').forEach(img => {
+            img.addEventListener('click', () => {
+                audio.currentTime = 0;
+                audio.play();
+            });
+        });
+    </script>
+    <footer style="position: relative; height: 80px; margin-top: 2rem; overflow: hidden; background: transparent;">
+        <img id="nyan-cat" src="https://media.tenor.com/E3MLgDP1qoQAAAAi/nyan-cat-transparent.gif" alt="Nyan Cat"
+            style="position: absolute; left: -120px; top: 10px; height: 60px; z-index: 10; pointer-events: none;">
+    </footer>
+    <script>
+        // Nyan Cat animation
+        const nyanCat = document.getElementById('nyan-cat');
+        let nyanPos = -120;
+        const nyanFooter = document.querySelector('footer');
+        function animateNyanCat() {
+            nyanPos += 2;
+            if (nyanFooter && nyanCat) {
+                if (nyanPos > window.innerWidth) {
+                    nyanPos = -120;
+                }
+                nyanCat.style.left = nyanPos + 'px';
+            }
+            requestAnimationFrame(animateNyanCat);
+        }
+        animateNyanCat();
+    </script>
 </body>
 
 </html>

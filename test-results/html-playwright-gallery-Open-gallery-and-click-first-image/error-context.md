@@ -1,0 +1,43 @@
+# Page snapshot
+
+```yaml
+- link "Skip to content":
+  - /url: "#start-of-content"
+- banner:
+  - link "Homepage":
+    - /url: https://github.com/
+- main:
+  - heading "Sign in to GitHub" [level=1]
+  - text: Username or email address
+  - textbox "Username or email address"
+  - text: Password
+  - textbox "Password"
+  - link "Forgot password?":
+    - /url: /password_reset
+  - button "Sign in"
+  - heading "Password login alternatives" [level=2]
+  - paragraph:
+    - button "Sign in with a passkey"
+  - paragraph:
+    - text: New to GitHub?
+    - link "Create an account":
+      - /url: /signup?return_to=https%3A%2F%2Fgithub.com%2Fcodespaces%2Fauth%2Frefactored-space-bassoon-77q7jx7pvxq3w6rw%3Fid%3Dpeaceful-plane-npt1c51%26cluster%3Dusw3%26name%3Drefactored-space-bassoon-77q7jx7pvxq3w6rw%26port%3D3000%26pb%3Dhttps%253A%252F%252Frefactored-space-bassoon-77q7jx7pvxq3w6rw-3000.app.github.dev%252Fauth%252Fpostback%252Ftunnel%253Frd%253D%25252Fhtml%25252Findex.html%2526tunnel%253D1%26cid%3De231da24-4ae1-42b7-b192-70e6bd1cc8e5%26type%3Dbasis&source=login
+- contentinfo:
+  - list:
+    - listitem:
+      - link "Terms":
+        - /url: https://docs.github.com/site-policy/github-terms/github-terms-of-service
+    - listitem:
+      - link "Privacy":
+        - /url: https://docs.github.com/site-policy/privacy-policies/github-privacy-statement
+    - listitem:
+      - link "Docs":
+        - /url: https://docs.github.com
+    - listitem:
+      - link "Contact GitHub Support":
+        - /url: https://support.github.com
+    - listitem:
+      - button "Manage cookies"
+    - listitem:
+      - button "Do not share my personal information"
+```
